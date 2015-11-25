@@ -19,7 +19,7 @@ package API is stable.
 
 ### Installation
 
-    go get github.com/gorilla/websocket
+    go get github.com/figoxu/websocket
 
 ### Protocol Compliance
 
