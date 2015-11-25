@@ -5,7 +5,7 @@
 package main
 
 import (
-	"github.com/gorilla/websocket"
+	"github.com/figoxu/websocket"
 	"log"
 	"net/http"
 	"time"
@@ -50,6 +50,7 @@ func (c *connection) readPump() {
 	c.ws.SetPongHandler(func(string) error { c.ws.SetReadDeadline(time.Now().Add(pongWait)); return nil })
 	for {
 		_, message, err := c.ws.ReadMessage()
+		log.Println("@receive:",string(message))
 		if err != nil {
 			break
 		}

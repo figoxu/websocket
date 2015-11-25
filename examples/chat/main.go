@@ -30,6 +30,7 @@ func serveHome(w http.ResponseWriter, r *http.Request) {
 func main() {
 	flag.Parse()
 	go h.run()
+	http.Handle("/js/", http.FileServer(http.Dir("dist")))
 	http.HandleFunc("/", serveHome)
 	http.HandleFunc("/ws", serveWs)
 	err := http.ListenAndServe(*addr, nil)
